@@ -38,9 +38,9 @@ function showAlarm(alarm) {
     load();
   });
   function buzz() {
-    Bangle.buzz(100).then(()=>{
+    Bangle.beep(200).then(()=>{
       setTimeout(()=>{
-        Bangle.buzz(100).then(function() {
+        Bangle.beep(200).then(function() {
           if (buzzCount--)
             setTimeout(buzz, 3000);
           else if(alarm.as) { // auto-snooze
@@ -48,7 +48,7 @@ function showAlarm(alarm) {
             setTimeout(buzz, 600000);
           }
         });
-      },100);
+      },200);
     });
   }
   buzz();
